@@ -11,6 +11,12 @@ RUN apt-get update && apt-get install -y openssh-server curl && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /var/run/sshd
 
+    
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# Installer PySpark
+RUN pip3 install pyspark
+
 # Télécharger Spark 3.4.4 avec Hadoop 3.3
 ENV SPARK_VERSION=3.4.4
 ENV HADOOP_VERSION=3
